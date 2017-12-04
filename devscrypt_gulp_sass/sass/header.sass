@@ -52,10 +52,16 @@ h4
 			color: #fff
 			text-decoration: none
 			display: block
-			padding: 15px 8px 11px;
+			padding: 15px 11px
+			&:hover
+				border: 3px solid #fff
+				border-radius: 50px	
+				padding: 15px 8px
 	.active
-		border: 3px solid #fff
-		border-radius: 50px
+		a
+			padding: 15px 8px
+			border: 3px solid #fff
+			border-radius: 50px
 
 ul.submenu 
 	display: none
@@ -140,22 +146,28 @@ ul.submenu
 	align-items: center
 	.content_text_wrap
 		color: #fff
+		margin-top: 85px
 		font-family: "BrandonGrotesque-Regular", sans-serif
 		h1 
 			font-family: "CircularStd-Medium", sans-serif
 			.circular_book
 				font-family: "CircularStd-Book", sans-serif
 		p 
-		font-size: 23px
+			font-size: 23px
+			margin-bottom: 46px
 		.button
 			color: #fff
 			font-family: "BrandonGrotesque-Medium", sans-serif
 			font-size: 18px
-		a 
 			border-radius: 50px
 			padding: 12px 12px
 			border: 3px solid #fff
 			text-decoration: none
+			margin-right: 30px
+			+mt(.3s)
+			&:hover
+				background: #fff
+				color: #607cf6
 	.content_img_wrap
 		background: url("../img/mobiles.png") center no-repeat
 		height: 505px
