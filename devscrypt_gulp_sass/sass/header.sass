@@ -1,0 +1,315 @@
+@import "bourbon"
+@import fonts.sass
+@import vars.sass
+
+body
+	font-weight: normal
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.42857
+	-webkit-font-smoothing: antialised
+	margin: 0
+
+h1,h2,h3,h4,h5,h6
+	font-family: "OpenSansLight", sans-serif
+	font-weight: normal
+
+h1
+	font-size: 41px
+	line-height: 1.2
+
+h2
+	font-size: 32px
+
+h3,h4
+	font-family: "OpenSansSemiBold", sans-serif
+	font-size: 15px
+
+h4
+	text-transform: uppercase
+	font-size: 13px
+
+body
+	background-color: #202020
+	.parallax-mirror
+		overflow: none!important
+
+.main_head
+	position: relative
+	min-height: 100vh
+	background-image: url(../img/fon.jpg)
+	background-size: cover
+	background-position: top center
+
+
+.main_content
+	position: relative
+	min-height: 90vh
+	display: flex
+	
+
+.container_wrap
+	max-width: 1190px
+	padding: 0 40px
+	margin: auto
+
+.my-mfp-zoom-in
+	.callback_form
+		opacity: 1
+	&.mfp-ready .callback_form
+		opacity: 1
+	&.mfp-removing .callback_form
+		opacity: 0
+	&.mfp-bg
+		opacity: 0
+		transition: opacity 0.3s ease-out
+	&.mfp-ready.mfp-bg
+		opacity: 0.8
+	&.mfp-removing.mfp-bg
+		opacity: 0
+	.mfp-close
+		background: linear-gradient(to bottom, #34c9e2, #5cccaf)
+		border-radius: 50px
+		
+
+*
+	transition: filter .25s ease
+.mfp-wrap ~ *
+	filter: blur(5px)
+
+.mfp-close-btn-in
+	.mfp-container
+		.mfp-close
+			color: #fff
+			right: -20px
+			top: -20px
+			width: 40px
+			height: 40px
+			opacity: 1
+			@media only screen and (max-width : 420px)
+				right: 0px
+
+.mnu-line
+	width: 100%
+	background-color: #fff
+	min-height: 70px
+	display: flex
+	flex-wrap: wrap
+	.mnu-line-wrap
+		width: 100%
+		height: 100%
+		max-width: 1170px
+		margin: 0 auto
+		.logo
+			display: block
+			padding: 16px 0px 10px 25px
+			float: left
+			margin-right: 25px
+		.main-mnu
+			float: left
+			ul
+				margin: 0
+				padding: 0
+				li
+					display: inline-block
+					text-transmfp-close: uppercase
+					list-style: none
+					&.active
+						border-bottom: 2px solid #59cbfa
+						background-color: #f5f6f9
+					a
+						text-decoration: none
+						display: block
+						font-size: 12px
+						padding: 26px 19px 24px
+						font-family: "Roboto-Light", sans-serif
+						font-style: normal
+						color: #3b3b3b
+					&:first-child
+						border-bottom: none
+						background-color: #fff
+						a
+							padding: 26px 10px 24px
+		.header_contacts
+			font-family: "Roboto-Black", sans-serif
+			font-size: em(13px)
+			float: left
+			margin: 26px 13px 26px 10px
+			i
+				color: #737475
+				margin-right: 15px
+		.header_working_hours
+			font-family: "Roboto-Black", sans-serif
+			font-size: em(13px)
+			float: left
+			margin: 26px 18px 26px 0
+			i
+				color: #737475
+				margin-right: 15px
+		.btn-wrap
+			float: left
+			width: 230px
+			height: 48px
+
+.btn-wrap		
+	background: linear-gradient(to bottom, #34c9e2, #5cccaf)
+	margin-top: 11px
+	a
+		font-size: 13px
+		font-family: "Roboto-Black", sans-serif
+		display: block
+		text-decoration: none
+		text-transform: uppercase
+		color: #fff
+		padding: 15px 14px
+		+mt(.5s)
+
+a.button
+	&:hover
+		+mt(.5s)
+		background: darken(#34c9e2, 10%)
+
+
+//Toggle Mnu
+.mnu-line 
+	.mnu-line-wrap 
+		.btn-wrap 
+			.toggle-mnu 
+				display: none
+
+.toggle-mnu 
+	display: none
+	width: 28px
+	height: 28px
+	margin-top: 8px
+	z-index: 100
+
+	span:after, span:before 
+		content: ""
+		position: absolute
+		left: 0
+		top: 9px
+
+	span:after
+		top: 18px
+
+	span 
+		position: relative
+		display: block
+
+	span, span:after, span:before
+		width: 100%
+		height: 2px
+		background-color: #34c9e2
+		transition: all 0.3s
+		backface-visibility: hidden
+		border-radius: 2px
+
+
+	&.on span 
+		background-color: transparent
+
+	&.on span:before 
+		transform: rotate(45deg) translate(-1px, 0px)
+
+	&.on span:after 
+		transform: rotate(-45deg) translate(6px, -7px)
+
+.toggle-mnu
+	position: absolute
+	top: 0
+	right: 15px
+
+.top_mnu
+	position: fixed
+	width: 100%
+	height: 100%
+	background-color: rgba(0,0,0,.9)
+	z-index: 50
+	right: 0
+	top: 0
+	display: none
+	ul,
+	li
+		list-style: none
+		padding: 0
+		margin: 0
+	ul
+		margin-top: 180px
+		text-align: center
+		li
+			&:nth-child(1) a
+				+animation-duration(.7s)
+			&:nth-child(2) a
+				+animation-duration(1s)
+			&:nth-child(3) a
+				+animation-duration(1.4s)
+			&:nth-child(4) a
+				+animation-duration(1.7s)
+			&:nth-child(5) a
+				+animation-duration(1.9s)	
+			a
+				color: #34c9e2
+				letter-spacing: 1px
+				text-decoration: none
+				display: block
+				text-transform: uppercase
+				padding: 20px 0
+				font-size: 14px
+				font-family: "Roboto-Light", sans-serif
+				+transition(all 0.6s ease)
+				i
+					font-size: 20px
+				&:hover
+					background-color: rgba(255, 255, 255, 0.05)
+
+
+
+
+.top_wrapper
+	margin: 19vh auto
+	//margin: 9% auto
+	text-align: center
+	p
+		text-transform: uppercase
+		font-family: "Roboto-Black", sans-serif
+		font-size: em(30px)
+		color: #fff
+	.btn-wrap
+		width: 182px
+		height: 48px
+		margin: auto
+		display: block
+		animation-delay: 0.2s
+
+.robotoBlack
+	font-family: "Roboto-Black", sans-serif
+	font-size: em(18px)
+.robotoThin
+	font-family: "Roboto-Thin", sans-serif
+	font-size: em(25px)
+.border_roboto
+	font-size: em(30px)
+	display: inline-block
+	padding: 15px 27px
+	border: 1px solid #fff
+	margin-top: 25px
+	position: relative
+	z-index: 0
+	&:after
+		content: ""
+		background-color: rgba(194, 213, 219, 0.6)
+		position: absolute
+		width: 100%
+		height: 100%
+		top: 0
+		left: 0
+		z-index: -1
+		i
+			margin-right: 10px
+
+
+
+
+
