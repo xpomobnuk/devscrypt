@@ -36,6 +36,26 @@ h4
 	position: relative
 	overflow: hidden
 
+.menu
+	.fixed
+		position: fixed
+		background: #f5f6fa
+		z-index: 30
+		width: 100%
+		box-shadow: 0 8px 6px -6px rgba(0,0,0,.7)
+		.active
+			a
+				border: 3px solid #607cf6
+		a 
+			color: #607cf6
+			&:after
+				border: 3px solid #607cf6
+			.submenu
+				box-shadow: 0 8px 6px -6px rgba(0,0,0,.7)
+		.lang
+			a:after
+				border-top: 11px solid #607cf6
+
 
 .head_menu
 	font-family: "CircularStd-Medium", sans-serif
@@ -46,6 +66,7 @@ h4
 		list-style-type: none
 		display: inline-block
 		margin-right: 40px
+		position: relative
 		&:last-child
 			margin-right: 0
 		a
@@ -53,39 +74,194 @@ h4
 			text-decoration: none
 			display: block
 			padding: 15px 11px
-			&:hover
+			line-height: 1
+			&:after
+				content: ""
+				opacity: 0
+				position: absolute
 				border: 3px solid #fff
-				border-radius: 50px	
+				-webkit-border-radius: 50px
+				border-radius: 50px
 				padding: 15px 8px
+				width: 100%
+				height: 100%
+				top: 0
+				left: 0
+				+mt(.3s)
+			&:hover
+				&:after
+					opacity: 1
 	.active
 		a
 			padding: 15px 8px
 			border: 3px solid #fff
 			border-radius: 50px
 
-ul.submenu 
-	display: none
+.submenu 
+	display: block
 	position: absolute
-	width: 120px
-	top: 37px
+	// min-width: 100%
+	top: 85px
 	left: 0
+	z-index: 1
 	background-color: white
+	text-align: center
+	padding-left: 0
+	max-height: 0px
+	overflow: hidden
+	transition: max-height 1s
+	min-width: 140px
+	// transition: max-height 0.2s linear
+	// background: linear-gradient(to bottom, #8c82ff, #5bb4fe)
+	img
+		width: 37px
+		height: 24px
+	li 
+		list-style-type: none
+		float: left
+		width: 100%
+		&:hover
+			background-color: #8c82ff
+			+mt(.2s)
+			a 
+				color: #fff
+		a 
+			display: block
+			float: left
+			
+
+.fixed_head_menu
+	min-height: 90px
+
+
+.active
+	.submenu
+		max-height: 300px
+		min-width: 140px
 
 .lang
+	position: relative
 	margin: 0
-	padding-left: 20px
+	float: right
+	margin-right: 20px
+	padding-left: 0
 	padding-top: 40px
 	font-family: "CircularStd-Medium", sans-serif
-	li
+	> li
 		list-style-type: none
 		display: inline-block
-		a
+		a		
+			display: block
+			padding: 15px 8px 11px
+			color: black
+			text-decoration: none
+		> a
 			display: block
 			padding: 15px 8px 11px
 			color: #fff
-			text-decoration: none
+			text-decoration: none	
+			&:after
+				content: ''
+				border: 6px solid transparent
+				border-top: 11px solid white
+				margin-left: 6px
+				margin-bottom: 2px
+				display: inline-block
+				vertical-align: bottom
+				color: black
 		img 
 			margin-right: 10px
+
+
+//Toggle Mnu
+.toggle-mnu 
+	display: block
+	width: 28px
+	height: 28px
+	margin-top: 14px
+	z-index: 60
+	float: left
+	padding-top: 40px
+
+	span:after, span:before 
+		content: ""
+		position: absolute
+		left: 0
+		top: 9px
+
+	span:after
+		top: 18px
+
+	span 
+		position: relative
+		display: block
+
+	span, span:after, span:before
+		width: 100%
+		height: 2px
+		background-color: #fff
+		transition: all 0.3s
+		backface-visibility: hidden
+		border-radius: 2px
+
+
+	&.on span 
+		background-color: transparent
+
+	&.on span:before 
+		transform: rotate(45deg) translate(-1px, 0px)
+
+	&.on span:after 
+		transform: rotate(-45deg) translate(6px, -7px)
+
+/* ========= End Toggle =========== */
+
+.top_mnu
+	position: fixed
+	width: 100%
+	height: 100%
+	background-color: rgba(0,0,0,.9)
+	z-index: 50
+	right: 0
+	top: 0
+	display: none
+	ul,
+	li
+		list-style: none
+		padding: 0
+		margin: 0
+	ul
+		margin-top: 180px
+		text-align: center
+		li
+			&:nth-child(1) a
+				+animation-duration(.7s)
+			&:nth-child(2) a
+				+animation-duration(1s)
+			&:nth-child(3) a
+				+animation-duration(1.4s)
+			&:nth-child(4) a
+				+animation-duration(1.7s)
+			&:nth-child(5) a
+				+animation-duration(1.9s)	
+			a
+				color: #34c9e2
+				letter-spacing: 1px
+				text-decoration: none
+				display: block
+				text-transform: uppercase
+				padding: 20px 0
+				font-size: 14px
+				font-family: BrandonGrotesque-Regular,sans-serif
+				+transition(all 0.6s ease)
+				i
+					font-size: 20px
+				&:hover
+					background-color: rgba(255, 255, 255, 0.05)
+
+
+
+
 
 
 
@@ -144,10 +320,15 @@ ul.submenu
 	min-height: 684px
 	display: flex
 	align-items: center
+	@media only screen and (max-width : 991px)
+		// margin-top: 20%
+		display: block
 	.content_text_wrap
 		color: #fff
 		margin-top: 85px
 		font-family: "BrandonGrotesque-Regular", sans-serif
+		@media only screen and (max-width : 991px)
+			margin-top: 25vh
 		h1 
 			font-family: "CircularStd-Medium", sans-serif
 			.circular_book
@@ -155,6 +336,9 @@ ul.submenu
 		p 
 			font-size: 23px
 			margin-bottom: 46px
+		a:last-child
+				margin-left: 30px
+				margin-right: 0
 		.button
 			color: #fff
 			font-family: "BrandonGrotesque-Medium", sans-serif
@@ -163,7 +347,6 @@ ul.submenu
 			padding: 12px 12px
 			border: 3px solid #fff
 			text-decoration: none
-			margin-right: 30px
 			+mt(.3s)
 			&:hover
 				background: #fff
@@ -171,6 +354,8 @@ ul.submenu
 	.content_img_wrap
 		background: url("../img/mobiles.png") center no-repeat
 		height: 505px
+		@media only screen and (max-width : 991px)
+			display: none
 
 
 
