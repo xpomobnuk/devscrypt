@@ -376,5 +376,67 @@ h4
 		min-height: 100px
 		background-color: #607cf6
 		transform: translateY(100px)
+		@media only screen and (max-width : 991px)
+			min-height: 190px
+		@media only screen and (max-width : 391px)
+			min-height: 215px
+		.header_token_text
+			margin: 0
+			color: #fff
+			font-family: "BrandonGrotesque-Regular", sans-serif
+			margin-left: 10px
+			@media only screen and (max-width : 991px)
+				margin-left: 0
+				text-align: center
+				padding-top: 1px
+			h2
+				font-size: 28px
+				font-weight: 600
+				margin: 0
+				margin-top: 15px
+				margin-left: 10px
+			p 
+				margin-left: 10px
+				font-size: 23px
+				margin-top: 0px
+
+.main_form
+	background: #fff
+	border-radius: 50px
+	max-width: 555px
+	height: 60px
+	margin-top: 20px
+	display: flex;
+	justify-content: space-between
+	align-items: center
+	@media only screen and (max-width : 991px)
+		margin: 0 auto
+	.emailAddress
+		font-family: "BrandonGrotesque-Regular", sans-serif
+		color: #757575
+		border: none
+		font-size: 18px
+		margin: 17px 20px
+		@media only screen and (max-width : 768px)
+			max-width: 150px
+		&:focus
+			outline: 0
+	.button
+		background-color: #607cf6
+		border: none
+		color: #fff
+		font-family: "BrandonGrotesque-Medium", sans-serif
+		border-radius: 50px
+		font-size: 18px
+		margin-right: 7px
+		padding: 11px 37px
+		border: 1px solid #607cf6
+		+mt(.5s)
+		@media only screen and (max-width : 504px)
+			padding: 11px 6px
+		&:hover
+			background: transparent
+			color: #607cf6
+
 
 
