@@ -93,9 +93,6 @@ h4
 	min-width: 140px
 	// transition: max-height 0.2s linear
 	// background: linear-gradient(to bottom, #8c82ff, #5bb4fe)
-	img
-		width: 37px
-		height: 24px
 	li 
 		list-style-type: none
 		float: left
@@ -120,13 +117,16 @@ h4
 		min-width: 140px
 		box-shadow: 0 8px 6px -6px rgba(0,0,0,.7)
 
-.lang
+.language
 	position: relative
 	margin: 0
 	float: right
 	// margin-right: 20px
 	padding: 20px 0
 	font-family: "CircularStd-Medium", sans-serif
+	img
+		width: 37px
+		height: 24px
 	> li
 		list-style-type: none
 		display: inline-block
@@ -170,7 +170,7 @@ h4
 					border: 3px solid #607cf6
 			.submenu
 				box-shadow: 0 8px 6px -6px rgba(0,0,0,.7)
-		.lang
+		.language
 			// padding: 20px 0
 			a
 				color: #607cf6
@@ -216,6 +216,7 @@ h4
 		transition: all 0.3s
 		backface-visibility: hidden
 		border-radius: 2px
+		z-index: 100
 
 
 	&.on span 
@@ -275,6 +276,8 @@ h4
 
 
 
+.menu .fixed .toggle-mnu.on > span
+	background-color: transparent
 
 
 
